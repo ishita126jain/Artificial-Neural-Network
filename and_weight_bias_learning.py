@@ -15,10 +15,10 @@ class perceptron(object):
 
     def fit(self,training_inputs,labels):
         for _ in range(self.threshold):
-            for inputs, labels in zip(training_inputs, labels):
+            for inputs, label in zip(training_inputs, labels):
                 p = self.predict(inputs)
-                self.weights[1:] += self.learning_rate * (labels-p) * inputs
-                self.weights[0] += self.learning_rate * (labels-p)
+                self.weights[1:] += self.learning_rate * (label-p) * inputs
+                self.weights[0] += self.learning_rate * (label-p)
 
 model = perceptron(3)
 training_inputs = np.array([[0,0,0],[0,0,1],[1,0,0],[0,1,0],[1,1,0],[1,1,1]])
